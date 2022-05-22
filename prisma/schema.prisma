@@ -16,6 +16,7 @@ model Fabric {
 model Product {
   id            Int             @id @default(autoincrement())
   title         String          @unique
+  image         String?
   year          Int
   price         Int
   isAvailable   Boolean         @default(false)
