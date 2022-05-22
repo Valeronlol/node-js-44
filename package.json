@@ -1,0 +1,20 @@
+{
+  "name": "lesson_44",
+  "version": "1.0.0",
+  "description": "tms node js 44 lesson",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.35",
+    "nodemon": "^2.0.16"
+  }
+}
