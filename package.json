@@ -10,9 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "3.12.0",
     "express": "^4.18.1",
-    "pug": "^3.0.2",
-    "@prisma/client": "3.12.0"
+    "lodash": "^4.17.21",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.35",

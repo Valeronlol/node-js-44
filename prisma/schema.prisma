@@ -15,7 +15,7 @@ model Fabric {
 
 model Product {
   id            Int             @id @default(autoincrement())
-  title         String
+  title         String          @unique
   year          Int
   price         Int
   isAvailable   Boolean         @default(false)
