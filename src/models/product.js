@@ -1,13 +1,11 @@
-const { PrismaClient } = require('@prisma/client')
-
-const prisma = new PrismaClient()
+const dbClient = require('../services/db-client')
 
 exports.getList = ({ limit = 50 }) => {
-    return prisma.product.findMany({
+    return dbClient.product.findMany({
         take: limit
     })
 }
 
 exports.addProduct = (data) => {
-    return prisma.product.create({ data })
+    return dbClient.product.create({ data })
 }

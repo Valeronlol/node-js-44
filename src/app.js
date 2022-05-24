@@ -1,4 +1,7 @@
-const { join } = require('path')
+const { join, resolve } = require('path')
+require('dotenv').config({
+    path: resolve(__dirname, '..', '.env')
+})
 const express = require('express')
 const { isNumber } = require('lodash')
 const router = require('./router')
