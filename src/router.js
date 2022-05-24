@@ -14,5 +14,11 @@ router.post('/login', asyncErrorHandler(userController.authenticateUser))
 router.get('/product', asyncErrorHandler(productsController.getList))
 router.post('/product', checkAuth, asyncErrorHandler(productsController.addProduct))
 router.put('/product/:id/image', checkAuth, asyncErrorHandler(uploadController.uploadImage))
+router.put('/user/image', checkAuth, asyncErrorHandler(uploadController.uploadImage))
+router.get('*', (req, res) => {
+    res.render('404', {
+        title: 'Not found page',
+    })
+})
 
 module.exports = router
