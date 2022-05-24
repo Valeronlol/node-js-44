@@ -13,6 +13,6 @@ router.post('/user', asyncErrorHandler(userController.createUser))
 router.post('/login', asyncErrorHandler(userController.authenticateUser))
 router.get('/product', asyncErrorHandler(productsController.getList))
 router.post('/product', checkAuth, asyncErrorHandler(productsController.addProduct))
-router.post('/upload', checkAuth, asyncErrorHandler(uploadController.uploadImage))
+router.put('/product/:id/image', checkAuth, asyncErrorHandler(uploadController.uploadImage))
 
 module.exports = router
