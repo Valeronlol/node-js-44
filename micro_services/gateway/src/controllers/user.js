@@ -5,9 +5,6 @@ const { getUserByEmail, createNewUser } = require('../services/data-client')
 
 exports.createUser = async (req, res) => {
     const { email, password, name } = req.body
-    if (!email || !password) {
-        throw new AppError({ message: 'Login and password is required!', code: 400 })
-    }
     const passwordHash = createHash(password)
     const resultData = await createNewUser({
         email,
@@ -20,9 +17,6 @@ exports.createUser = async (req, res) => {
 
 exports.authenticateUser = async (req, res) => {
     const { email, password } = req.body
-    if (!email || !password) {
-        throw new AppError({ message: 'Login and password is required!', code: 400 })
-    }
     const passwordHash = createHash(password)
     const currentUser = await getUserByEmail(email)
     if (!currentUser || passwordHash !== currentUser.passwordHash) {
