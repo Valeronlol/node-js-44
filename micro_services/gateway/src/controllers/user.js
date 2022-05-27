@@ -1,7 +1,7 @@
 const { omit } = require('lodash')
 const { createHash, createJwtTokenAsync } = require('../services/auth')
-const userModel = require('../models/user')
 const { AppError } = require('../utils/app-errors')
+const { getUserByEmail, createNewUser } = require('../services/data-client')
 
 exports.createUser = async (req, res) => {
     const { email, password, name } = req.body
@@ -9,7 +9,7 @@ exports.createUser = async (req, res) => {
         throw new AppError({ message: 'Login and password is required!', code: 400 })
     }
     const passwordHash = createHash(password)
-    const resultData = await userModel.createNewUser({
+    const resultData = await createNewUser({
         email,
         passwordHash,
         name,
@@ -24,7 +24,7 @@ exports.authenticateUser = async (req, res) => {
         throw new AppError({ message: 'Login and password is required!', code: 400 })
     }
     const passwordHash = createHash(password)
-    const currentUser = await userModel.getUserByEmail(email)
+    const currentUser = await getUserByEmail(email)
     if (!currentUser || passwordHash !== currentUser.passwordHash) {
         throw new AppError({ message: 'Authorized error', code: 401 })
     }

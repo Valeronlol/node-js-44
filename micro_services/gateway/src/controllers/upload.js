@@ -1,4 +1,5 @@
-const { uploadFileToFileSys, updateProductImage } = require('../models/upload')
+const { updateProductImage } = require('../services/data-client')
+const { uploadFileToFileSys } = require('../services/upload')
 
 exports.uploadImage = async (req, res) => {
     const productId = parseInt(req.params.id)

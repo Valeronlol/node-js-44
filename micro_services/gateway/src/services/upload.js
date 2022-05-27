@@ -1,6 +1,5 @@
 const formidable = require('formidable')
 const { nanoid } = require('nanoid')
-const dbClient = require('../services/db-client')
 
 exports.uploadFileToFileSys = (req) => new Promise(((resolve, reject) => {
     formidable({
@@ -12,14 +11,3 @@ exports.uploadFileToFileSys = (req) => new Promise(((resolve, reject) => {
             err ? reject(err) : resolve(`/images/${image.newFilename}`)
         })
 }))
-
-exports.updateProductImage = (id, image) => {
-    return dbClient.product.update({
-        where: {
-            id,
-        },
-        data: {
-            image,
-        },
-    })
-}

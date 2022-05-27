@@ -3,23 +3,18 @@
   "version": "1.0.0",
   "description": "tms node js 44 lesson",
   "main": "src/app.js",
-  "scripts": {
-    "dev": "nodemon src/app.js",
-    "prisma:migrate": "./node_modules/.bin/prisma migrate dev",
-    "prisma:migrate:reset": "./node_modules/.bin/prisma migrate reset",
-    "prisma:migrate:status": "./node_modules/.bin/prisma migrate status",
-    "prisma:format": "./node_modules/.bin/prisma format",
-    "prisma:init": "./node_modules/.bin/prisma init",
-    "prisma:generate": "./node_modules/.bin/prisma generate"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "dev": "PORT=3000 nodemon src/app.js"
+  },
   "dependencies": {
-    "@prisma/client": "3.12.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "formidable": "^2.0.1",
+    "got": "^12.1.0",
+    "got-cjs": "^12.0.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "nanoid": "^3.3.4",

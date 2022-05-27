@@ -11,7 +11,7 @@ exports.createHash = (str) => {
 
 exports.createJwtTokenAsync = (payload = {}) => new Promise((resolve, reject) => {
     const options = {
-        expiresIn: '30days'
+        expiresIn: '365d'
     }
     sign(payload, jwtSecret, options,  (err, token) => {
         if (err) {
