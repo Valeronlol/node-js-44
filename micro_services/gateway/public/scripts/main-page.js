@@ -21,5 +21,13 @@ window.addEventListener('DOMContentLoaded', async () => {
                 subribeProductChange()
             })
     }
-    subribeProductChange()
+    // subribeProductChange()
+
+
+    const socket = io("ws://localhost:3000", {
+        reconnectionDelayMax: 10000
+    });
+    socket.on('HELLO', (e) => {
+        console.log(e)
+    })
 })
