@@ -1,12 +1,25 @@
 window.addEventListener('DOMContentLoaded', async () => {
-    const productList = await fetch(`${window.location.href}product`).then((res) => res.json())
     const carousel = document.getElementById('carousel-container')
-    productList.forEach((product) => {
-        const img = document.createElement('img')
-        img.src = product.image
-        img.className = 'carousel-item'
-        img.alt = product.title
-        carousel.appendChild(img)
-    })
+    const getProducts = async (path = 'product') => {
+        const productList = await fetch(`${window.location.href}${path}`).then((res) => res.json())
+        productList.forEach((product) => {
+            const img = document.createElement('img')
+            img.src = product.image
+            img.className = 'carousel-item'
+            img.alt = product.title
+            carousel.appendChild(img)
+        })
+    }
+    await getProducts()
     M.Carousel.init(carousel, {})
+
+    const subribeProductChange = () => {
+        console.log('subribeProductChange called')
+        getProducts('product/subribe')
+            .finally(() => {
+                console.log('finally called')
+                subribeProductChange()
+            })
+    }
+    subribeProductChange()
 })
